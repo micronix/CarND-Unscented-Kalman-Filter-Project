@@ -1,5 +1,4 @@
 #include "ukf.h"
-#include "tools.h"
 #include "Eigen/Dense"
 #include <iostream>
 
@@ -343,9 +342,9 @@ void UKF::UpdateUKF(MeasurementPackage meas_package, MatrixXd Zsig, int n_z){
   P_ = P_ - K * S * K.transpose();
 
   if (meas_package.sensor_type_ == MeasurementPackage::RADAR){
-    NIS_radar_ = z.transpose() * S.inverse() * z;
+    //NIS_radar_ = z.transpose() * S.inverse() * z;
   }
   if (meas_package.sensor_type_ == MeasurementPackage::LASER){
-    NIS_laser_ = z.transpose() * S.inverse() * z;
+    //NIS_laser_ = z.transpose() * S.inverse() * z;
   }
 }
